@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     const megaMenuLinks = document.querySelectorAll('.mega-menu a[data-company]');
     const megaMenuItem = document.querySelector('.has-mega-menu');
+    const themeToggle = document.querySelector('.theme-toggle');
+
+    // ============================================
+    // Theme Toggle (Light/Dark)
+    // ============================================
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
 
     // Switch tabs
     function switchTab(tabId) {

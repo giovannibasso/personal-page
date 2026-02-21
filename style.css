@@ -27,6 +27,19 @@
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Light Theme */
+body.light-theme {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F1F5F9;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --border-color: #E2E8F0;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -74,6 +87,58 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 64px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    border-color: var(--copilot-purple);
+    transform: scale(1.1);
+}
+
+.theme-icon-dark,
+.theme-icon-light {
+    position: absolute;
+    transition: var(--transition);
+}
+
+.theme-icon-light {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+body.light-theme .theme-icon-dark {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+body.light-theme .theme-icon-light {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+body.light-theme .navbar {
+    background: rgba(248, 250, 252, 0.9);
 }
 
 .nav-logo {
