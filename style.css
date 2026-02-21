@@ -74,8 +74,9 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.92);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -89,52 +90,52 @@ body {
     height: 64px;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* Theme Toggle */
+.theme-item {
+    margin-left: 8px;
 }
 
 .theme-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    background: var(--bg-secondary);
-    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 500;
     transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .theme-toggle:hover {
     border-color: var(--copilot-purple);
-    transform: scale(1.1);
+    color: var(--text-primary);
+    background: var(--bg-card-hover);
 }
 
-.theme-icon-dark,
-.theme-icon-light {
-    position: absolute;
-    transition: var(--transition);
+.theme-toggle:active {
+    transform: scale(0.96);
+}
+
+.theme-label {
+    display: none;
 }
 
 .theme-icon-light {
-    opacity: 0;
-    transform: rotate(90deg) scale(0);
+    display: none;
 }
 
 body.light-theme .theme-icon-dark {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0);
+    display: none;
 }
 
 body.light-theme .theme-icon-light {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
+    display: inline;
 }
 
 body.light-theme .navbar {
@@ -917,6 +918,22 @@ body.light-theme .navbar {
 
     .section-title {
         margin-top: 80px;
+    }
+
+    .theme-item {
+        margin-left: 0;
+        margin-top: 8px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .theme-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .theme-label {
+        display: inline;
     }
 }
 
